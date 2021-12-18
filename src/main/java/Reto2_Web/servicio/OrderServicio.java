@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.TimeZone;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,7 +96,9 @@ public class OrderServicio {
 
     public List<Order> findByRegisterDay(String date, int idSales){
         SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd");
+        parse.setTimeZone(TimeZone.getTimeZone("America/Bogota"));
         Date dateFormat = new Date();
+
         try{
             dateFormat= parse.parse(date);
 
