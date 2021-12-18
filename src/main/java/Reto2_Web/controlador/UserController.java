@@ -71,4 +71,8 @@ public class UserController {
     public Optional<User> getUser(@PathVariable("id") int id) {
         return userService.getUser(id);
     }
+    @GetMapping("/birthday/{monthBirthtDay}")
+    public List<User> getUserbymonthBirthtDay(@PathVariable("monthBirthtDay") String monthBirthtDay) {
+        return userService.getUserBymonthBirthtDay(monthBirthtDay);
+}
 }

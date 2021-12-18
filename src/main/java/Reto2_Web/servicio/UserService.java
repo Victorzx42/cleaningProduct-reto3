@@ -102,7 +102,7 @@ public class UserService {
         }).orElse(false);
         return aBoolean;
     }
-    
+
     public boolean emailExists(String email) {
         return userRepository.emailExists(email);
     }
@@ -116,5 +116,7 @@ public class UserService {
             return usuario.get();
         }
     }
-    
+    public List<User> getUserBymonthBirthtDay(String monthBirthtDay){
+        return userRepository.getUsersBymonthBirthtDay(monthBirthtDay);
+    }
 }

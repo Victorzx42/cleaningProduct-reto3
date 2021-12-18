@@ -2,6 +2,8 @@ package Reto2_Web.repositorio;
 
 import Reto2_Web.interfaces.InterfaceOrder;
 import Reto2_Web.modelo.Order;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +45,17 @@ public class OrderRepositorio {
 
     public List<Order> findByZone(String zona) {
         return orderCrudRepository.findByZone(zona);
+    }
+
+    public List<Order> findByStatus(String status, int idSales){
+        return orderCrudRepository.findByStatus(status,idSales);
+    }
+
+    public List<Order> findByRegisterDate(Date date, int idSales){
+        return orderCrudRepository.findByRegisterDay(date,idSales);
+    }
+
+    public List<Order> findBySalesMan(int idSales){
+        return orderCrudRepository.findBySalesMan(idSales);
     }
 }

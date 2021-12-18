@@ -80,6 +80,14 @@ public class CleaningProductService {
         }).orElse(false);
         return aBoolean;
     }
+
+    public List<CleaningProduct> getProductByPrice(String price){
+        double priceValue = Double.parseDouble(price);
+        return ProductRepository.getProductbyPrice(priceValue);
+    }
+    public List<CleaningProduct> getProductByDescription(String description){
+        return ProductRepository.getProductByDescription(description);
+    }
     
     
 }

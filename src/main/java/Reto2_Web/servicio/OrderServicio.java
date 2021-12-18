@@ -3,6 +3,10 @@ package Reto2_Web.servicio;
 
 import Reto2_Web.modelo.Order;
 import Reto2_Web.repositorio.OrderRepositorio;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,12 +83,25 @@ public class OrderServicio {
    public List<Order> findByZone(String zona) {
        return orderRepository.findByZone(zona);
    }
-//
-//    public List<Order> ordersSalesManByDate(String dateStr, int id) {
-//        return orderRepository.ordersSalesManByDate(dateStr, id);
-//    }
-//    
-//    public List<Order> ordersSalesManByState(String state, Integer id) {
-//        return orderRepository.ordersSalesManByState(state, id);
-//    }
+
+    public List<Order> findByStatus(String status, int idSales){
+        return orderRepository.findByStatus(status,idSales);
+    }
+
+    public List<Order> findBySalesMan(int idSales){
+        return orderRepository.findBySalesMan(idSales);
+    }
+
+    public List<Order> findByRegisterDay(String date, int idSales){
+        SimpleDateFormat parse = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateFormat = new Date();
+        try{
+            dateFormat= parse.parse(date);
+
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        return orderRepository.findByRegisterDate(dateFormat, idSales);
+    }
+
 }

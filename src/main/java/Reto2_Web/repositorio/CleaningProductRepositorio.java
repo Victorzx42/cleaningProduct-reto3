@@ -38,4 +38,11 @@ public class CleaningProductRepositorio {
     public void delete(CleaningProduct Product) {
         repository.delete(Product);
     }
+
+    public List<CleaningProduct> getProductbyPrice(double price){
+        return repository.findByPrice(price);
+    }
+    public List<CleaningProduct> getProductByDescription(String description){
+        return  repository.findByDescription(description);
+    }
 }

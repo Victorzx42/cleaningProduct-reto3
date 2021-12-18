@@ -58,6 +58,16 @@ public class CleaningProductController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("reference") String reference) {
         return accessoryService.delete(reference);
-    } 
+    }
+
+    @GetMapping("/price/{price}")
+    public List<CleaningProduct> getByPrice(@PathVariable("price") String price) {
+        return accessoryService.getProductByPrice(price);
+    }
+    @GetMapping("/description/{description}")
+    public List<CleaningProduct> getByDescription(@PathVariable("description") String description) {
+        return accessoryService.getProductByDescription(description);
+
+    }
     
 }
